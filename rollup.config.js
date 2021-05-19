@@ -5,10 +5,12 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'lib',
-    format: 'cjs'
+    format: 'cjs',
   },
   plugins: [
-    typescript(),
+    typescript({
+      rootDir: 'src/',
+    }),
     uglify(),
   ]
 };

@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "author": "Florent Catiau-Tristant <florent.ct@orange.fr>",
   "license": "MIT",
-  "types": "./types/index.d.ts",
+  "types": "./lib/types/index.d.ts",
   "scripts": {
     "build": "rollup -c"
   },

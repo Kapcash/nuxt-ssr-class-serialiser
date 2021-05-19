@@ -8,6 +8,8 @@
       "ESNext.AsyncIterable",
       "DOM"
     ],
+    "declaration": true,
+    "declarationDir": "lib/types",
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": false,
