@@ -1,13 +1,14 @@
-import { plainToClass } from 'class-transformer';
+import Vue, { ComponentOptions } from 'vue';
+import { ClassConstructor, plainToClass } from 'class-transformer';
 import { createDecorator } from 'vue-class-component';
 
 /** Deserialize an SSR data on client side with the given constructor
  * @param classType The class constructor to use for this property
  */
-export const SerialiseData = (classType) => createDecorator((options, key) => {
+export const SerialiseData = <T> (classType: ClassConstructor<T>) => createDecorator((options, key) => {
   if (process.server) {
     wrapAsyncData(options, key);
-  } else if (process.client) {
+  } else {
     wrapBeforeCreate(options, key, classType);
   }
 });
@@ -15,21 +16,19 @@ export const SerialiseData = (classType) => createDecorator((options, key) => {
 /** Enrich the asyncData hook with a registering function.
  * Ensure we still call the original hook if it exists.
  */
-function wrapAsyncData(options, key) {
+function wrapAsyncData(options: ComponentOptions<Vue>, key: string) {
   const originalAsyncDataHook = options.asyncData;
-  if (originalAsyncDataHook) {
-    options.asyncData = async function wrapperAsyncData(...args) {
-      const originalAsyncData = (await originalAsyncDataHook.apply(this, args)) || {};
+  options.asyncData = async function wrapperAsyncData(...args) {
+    const originalAsyncData = (await originalAsyncDataHook?.apply(this, args)) || {};
 
-      registerSerializableProp(originalAsyncData, key);
+    registerSerializableProp(originalAsyncData, key);
 
-      return originalAsyncData;
-    };
-  }
+    return originalAsyncData;
+  };
 }
 
 /** Add a config property to store the data that must be serialised */
-function registerSerializableProp(asyncData, key) {
+function registerSerializableProp(asyncData: any, key: string) {
   asyncData.serializerConfig = asyncData.serializerConfig || [];
   asyncData.serializerConfig.push(key);
 }
@@ -37,13 +36,11 @@ function registerSerializableProp(asyncData, key) {
 /** Enrich the beforeCreate hook with a deserialiser function.
  * Ensure we still call the original hook if it exists.
  */
-function wrapBeforeCreate(options, key, classType) {
+function wrapBeforeCreate <T>(options: ComponentOptions<Vue>, key: string, classType: ClassConstructor<T>) {
   const originalBeforeCreateHook = options.beforeCreate;
   options.beforeCreate = function deserializerWrapper(...args) {
     deserializer.call(this, key, classType);
-    if (originalBeforeCreateHook) {
-      originalBeforeCreateHook.apply(this, args);
-    }
+    originalBeforeCreateHook?.apply(this, args);
   };
 }
 
@@ -51,7 +48,7 @@ function wrapBeforeCreate(options, key, classType) {
  * @param key the property name
  * @param classType The class constructor used to create the instance
  */
-function deserializer(key, classType) {
+function deserializer <T>(this: Vue, key: string, classType: ClassConstructor<T>) {
   const { data } = this.$nuxt.context.nuxtState || {};
 
   if (data) {
