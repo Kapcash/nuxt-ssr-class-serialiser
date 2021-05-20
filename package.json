@@ -7,7 +7,8 @@
   "license": "MIT",
   "types": "./lib/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "nuxt example"
   },
   "dependencies": {
     "class-transformer": "^0.4.0",
@@ -15,9 +16,12 @@
     "vue-class-component": "~7.0.0"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^0.2.2",
     "@nuxt/types": "^2.15.6",
     "@rollup/plugin-typescript": "^8.2.1",
+    "@types/jest": "^26.0.23",
     "@types/node": "^15.3.0",
+    "jest": "^26.6.3",
     "rollup": "^2.48.0",
     "rollup-plugin-uglify": "^6.0.4",
     "tslib": "^2.2.0",
