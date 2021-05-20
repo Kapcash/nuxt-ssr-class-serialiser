@@ -4,7 +4,7 @@ import { uglify } from 'rollup-plugin-uglify';
 export default {
   input: 'src/index.ts',
   output: {
-    dir: 'lib',
+    dir: 'dist',
     format: 'cjs',
   },
   plugins: [

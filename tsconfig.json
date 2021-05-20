@@ -9,7 +9,7 @@
       "DOM"
     ],
     "declaration": true,
-    "declarationDir": "lib/types",
+    "declarationDir": "dist/types",
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": false,
@@ -27,6 +27,6 @@
   },
   "exclude": [
     "node_modules",
-    "lib"
+    "dist"
   ]
 }
