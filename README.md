@@ -1,6 +1,7 @@
 # nuxt-ssr-class-serialiser
 
-[![License][license-src]][license-href]
+[![npm version][npm-version-badge]][npm-version-href]
+![licence badge][licence-badge]
 
 ## Features
 
@@ -102,3 +103,9 @@ export default class Page extends Vue {
 ## License
 
 [MIT License](./LICENSE)
+
+
+[npm-version-badge]: https://img.shields.io/npm/v/nuxt-ssr-class-serialiser
+[npm-version-href]: https://npmjs.com/package/kapcash/nuxt-ssr-class-serialiser
+
+[licence-badge]: https://img.shields.io/npm/l/nuxt-ssr-class-serialiser
