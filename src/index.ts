@@ -1,6 +1,6 @@
 import { classToPlain } from 'class-transformer';
 import { Module, Context } from '@nuxt/types';
-export { SerialiseData } from './serialiser-decorator';
+export { SerialiseClass } from './serialiser-class-decorator';
 
 const nuxtModule: Module = function() {
   const { options, nuxt } = this;

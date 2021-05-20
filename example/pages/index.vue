@@ -26,12 +26,12 @@
 <script lang="ts">
 import { plainToClass } from 'class-transformer'
 import { Vue, Component } from 'nuxt-property-decorator'
-import { SerialiseData } from '../../src/serialiser-decorator'
+import { SerialiseClass } from '../../src/serialiser-class-decorator'
 import { Todo, fetchTodo } from '../models/todo'
 
 @Component
 export default class Page extends Vue {
-  @SerialiseData(Todo)
+  @SerialiseClass(Todo)
   todo!: Todo
 
   todoPlain!: Todo

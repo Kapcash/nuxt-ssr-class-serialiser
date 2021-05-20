@@ -5,7 +5,7 @@ import { createDecorator } from 'vue-class-component';
 /** Deserialize an SSR data on client side with the given constructor
  * @param classType The class constructor to use for this property
  */
-export const SerialiseData = <T> (classType: ClassConstructor<T>) => createDecorator((options, key) => {
+export const SerialiseClass = <T> (classType: ClassConstructor<T>) => createDecorator((options, key) => {
   if (process.server) {
     wrapAsyncData(options, key);
   } else {
