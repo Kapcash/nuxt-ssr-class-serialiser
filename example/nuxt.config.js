@@ -4,6 +4,6 @@ export default {
     '@nuxt/typescript-build',
   ],
   modules: [
-    '@nuxt/ssr-class-serialiser'
+    '../src/index.ts'
   ],
 }

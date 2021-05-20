@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <h3>{{ todo.description }}</h3>
-    Is todo expired? <span>{{ !!todo.isExpired }}</span>
+    <p>Is todo expired? {{ !!todo.isExpired }}</p>
 
     <hr>
 
     <blockquote>Same todo without the decorator</blockquote>
 
     <h3>{{ todoPlain.description }}</h3>
-    Is todo expired? <span>{{ !!todoPlain.isExpired }}</span>
+    <p>Is todo expired? {{ !!todoPlain.isExpired }}</p>
 
     <blockquote>
       Note how it shows "true" when you refresh the page and updates to "false" after a few ms.
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import { SerialiseData } from '@nuxt/ssr-class-serialiser'
+import { SerialiseData } from '../../src/serialiser-decorator'
 import { Todo, fetchTodo } from '../models/todo'
 
 @Component
