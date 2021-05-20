@@ -8,6 +8,7 @@ const nuxtModule: Module = function() {
   if (!options.build.transpile) {
     options.build.transpile = []
   }
+
   options.build.transpile.push('@nuxt/ssr-class-serialiser')
 
   nuxt.hook('vue-renderer:ssr:context', registerSerialisableData)
@@ -27,5 +28,7 @@ const registerSerialisableData = (context: Context['ssrContext']) => {
     }
   }
 }
+
+(nuxtModule as any).meta = require('../package.json')
 
 export default nuxtModule;
