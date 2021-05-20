@@ -9,7 +9,7 @@ const nuxtModule: Module = function() {
     options.build.transpile = []
   }
 
-  options.build.transpile.push('@nuxt/ssr-class-serialiser')
+  options.build.transpile.push('nuxt-ssr-class-serialiser')
 
   nuxt.hook('vue-renderer:ssr:context', registerSerialisableData)
 }

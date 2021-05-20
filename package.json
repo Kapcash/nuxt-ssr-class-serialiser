@@ -1,7 +1,9 @@
 {
-  "name": "@nuxt/ssr-class-serialiser",
-  "version": "1.0.0",
+  "name": "nuxt-ssr-class-serialiser",
+  "version": "1.0.1",
   "description": "A Nuxt module to allow class instances transfer in Universal mode",
+  "repository": "https://github.com/Kapcash/nuxt-ssr-class-serializer",
+  "homepage": "https://github.com/Kapcash/nuxt-ssr-class-serializer",
   "author": "Florent Catiau-Tristant <florent.ct@orange.fr>",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -13,7 +15,7 @@
     "dev": "nuxt example",
     "test": "jest",
     "build": "rollup -c",
-    "publish": "yarn build && yarn test && yarn publish"
+    "deploy": "yarn test && yarn build && yarn publish"
   },
   "dependencies": {
     "class-transformer": "^0.4.0",

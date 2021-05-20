@@ -1,4 +1,4 @@
-# @nuxt/ssr-class-serialiser
+# nuxt-ssr-class-serialiser
 
 [![License][license-src]][license-href]
 
@@ -28,18 +28,18 @@ But `JSON.stringify()` doesn't work with class instances! 💥
 
 ## Setup
 
-1. Add `@nuxt/ssr-class-serialiser` dependency to your project
+1. Add `nuxt-ssr-class-serialiser` dependency to your project
 
 ```bash
-yarn add @nuxt/ssr-class-serialiser # or npm install @nuxt/ssr-class-serialiser
+yarn add nuxt-ssr-class-serialiser # or npm install nuxt-ssr-class-serialiser
 ```
 
-2. Add `@nuxt/ssr-class-serialiser` to the `modules` section of `nuxt.config.js`
+2. Add `nuxt-ssr-class-serialiser` to the `modules` section of `nuxt.config.js`
 
 ```js
 {
   modules: [
-    '@nuxt/ssr-class-serialiser',
+    'nuxt-ssr-class-serialiser',
   ],
 }
 ```

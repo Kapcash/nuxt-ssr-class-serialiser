@@ -13,7 +13,7 @@ describe('module', () => {
   it('should register module as transplied at build', () => {
     const nuxt = getNuxt()
 
-    expect(nuxt.options.build.transpile).toContain('@nuxt/ssr-class-serialiser')
+    expect(nuxt.options.build.transpile).toContain('nuxt-ssr-class-serialiser')
   })
 
   it('should register a renderer ssr content hook', () => {
