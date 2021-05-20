@@ -25,6 +25,6 @@ describe('module', () => {
   it('should deserialise server side class instance on frontend', async () => {
     const { body } = await get('/')
 
-    expect(body).toContain('Is todo expired? true</p>')
+    expect(body).toContain('Expired? true</p>')
   })
 })
