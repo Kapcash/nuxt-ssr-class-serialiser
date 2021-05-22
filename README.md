@@ -22,7 +22,7 @@ But `JSON.stringify()` doesn't work with class instances! 💥
 
 ### Requirements
 
-- Use the library [vue-class-property](https://class-component.vuejs.org) (or any wrapping library such as [vue-class-property](https://github.com/vuejs/vue-class-component) and [nuxt-class-property](https://github.com/nuxt-community/nuxt-property-decorator))
+- Use the library [vue-class-property](https://class-component.vuejs.org) (or any wrapping library such as [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) and [nuxt-class-property](https://github.com/nuxt-community/nuxt-property-decorator))
 - Using Nuxt **Universal** mode (`target: 'server'`)
 
 > I wish I could provide this solution for vanilla components instead of class based one. Sadly, I don't know how to provide the equivalent of Typescript decorators for vanilla code...
